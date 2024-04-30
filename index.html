@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./styles.css">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <div class="container">
+        <div >
+                <h1 class = "header_text"> Mahal na mahal mo ba ako?</h1>
+                <h1 class = "header_text">Ashlee Eunice Dizon?</h1>
+            
+        </div>
+        <div class="gif_container">
+            <img src="https://gifdb.com/images/high/milk-and-mocha-flying-kisses-x5hh9fyriwu8kyew.gif" alt="Cute animated illustration">
+        </div>
+        
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+            <button class="btn" id="noButton" onclick="moveButton()">No</button>
+            
+            <div id="notificationBox" class="notification">
+                <h2>Notification Title</h2>
+                <span id="notificationText"></span>
+                <span class="close-btn" onclick="closeNotification()">x</span>
+              </div>
+              
+              <audio id="notificationSound">
+                <source src="zapsplat_multimedia_alert_error_002_26393.mp3" type="audio/mpeg">
+              </audio>
+
+            <script>
+                function nextPage() {
+                    window.location.href = "yes.html"
+                }
+
+                function moveButton(){
+                    var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
+                    var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
+                    document.getElementById('noButton').style.left= `${x}px`;
+                    document.getElementById('noButton').style.top= `${y}px`
+                }
+
+                var notifications = [
+                "Di mo naba ako mahal? 🙁",
+    "Ay nag No pa talaga",
+    "Isa pang No mo makikita mo hinahanap mo",
+    "Sige lang.",
+    "Isa pa Ashlee Eunice",
+    "Ayoko na nga"
+];
+var currentNotificationIndex = 0;
+
+document.getElementById("noButton").addEventListener("click", function() {
+  if (currentNotificationIndex >= notifications.length) {
+    window.location.href = "no.html"; // Redirect after the 5th notification
+    return;
+  }
+  var notification = notifications[currentNotificationIndex++];
+  document.getElementById("notificationText").innerText = notification;
+  document.getElementById("notificationBox").style.display = "block";
+  document.getElementById("notificationSound").play();
+  disableOtherButtons(true);
+});
+
+function closeNotification() {
+  document.getElementById("notificationBox").style.display = "none";
+  disableOtherButtons(false);
+}
+
+function disableOtherButtons(disabled) {
+  var buttons = document.getElementsByTagName("button");
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].disabled = disabled;
+  }
+}
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(38, 149, 240);
+}
+
+.header_text {
+    font-family: 'Nunito';
+    font-size: 50px;
+    font-weight: bold;
+    color: aliceblue;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.gif_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#yeserButton {
+    position:absolute ;
+    margin-top: 700px;
+    padding: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: aliceblue;
+    color: rgb(228, 9, 9);
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
